@@ -23,8 +23,17 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+#Devis User Authenticatin
+gem 'devise'
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
+gem 'aws-sdk-s3', require: false
+gem 'active_storage_validations'
+
+
+
+
+#dot env
 gem 'dotenv-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
