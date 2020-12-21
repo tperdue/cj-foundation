@@ -12,19 +12,28 @@
 </head>
 
 <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <% flash.each do |type, msg| %>
-      <div>
-         <%= msg %>
-       </div>
-    <% end %>
+
+
     <div class="relative flex flex-no-wrap">
+
+
         <%= render partial: "layouts/sidebar" %>
         <div class="w-full">
         <%= render partial: "layouts/navigation" %>
+          <% flash.each do |type, msg| %>
+
+            <% if type == 'notice' %>
+              <%= render partial: '/manager/flashSuccess', locals: {message: msg} %>
+            <%end %>
+
+            <% if type == 'alert' %>
+            <% end %>
+
+          <% end %>
             <!-- Remove class [ h-64 ] when adding a card block -->
-            <div class="container mx-auto py-10 h-64 md:w-4/5 w-11/12 px-6">
+            <div class="container mx-auto py-10 h-64 md:w-4/5 w-11/12 px-6 z-0">
+
+
                 <!-- Remove class [ border-dashed border-2 border-gray-300 ] to remove dotted border -->
                 <div class="w-full h-full ">
                     <!-- Place your content here -->

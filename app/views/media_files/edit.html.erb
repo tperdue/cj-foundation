@@ -31,6 +31,7 @@
           <div class="mt-8 flex flex-col sm:flex-row sm:items-center w-full">
 
             <%= form.submit("Upload Media", {:class => "w-full sm:w-auto mb-4 sm:mb-0 sm:mr-4 py-2 px-3 rounded transition duration-150 ease-in-out flex items-center bg-blue-500 hover:bg-blue-600 focus:bg-blue-600 focus:outline-none text-sm text-white"})%>
+            <%= link_to "Delete File", media_file_path(@media_file), :method => 'delete', :class => "w-full sm:w-auto mb-4 sm:mb-0 sm:mr-4 py-2 px-3 rounded transition duration-150 ease-in-out flex items-center bg-red-500 hover:bg-red-600 focus:bg-blue-600 focus:outline-none text-sm text-white" %>
           </div>
         </div>
 

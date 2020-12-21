@@ -1,3 +1,0 @@
-class TextContent < ApplicationRecord
-    
-end

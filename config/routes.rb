@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   
 
+  resources :home_pages
   devise_for :users
   root 'page#home'
 
@@ -14,6 +15,9 @@ Rails.application.routes.draw do
 
   #File Manager
   resources :media_files, path: '/manager/media'
+
+  #HomePage
+  resources :home_pages, path: '/manager/pages/home_page'
 
 
 

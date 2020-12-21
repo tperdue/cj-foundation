@@ -45,6 +45,11 @@ class MediaFilesController < ApplicationController
   end
 
   def destroy
+    @media_file = MediaFile.find(params[:id])
+    @media_file.file.purge
+    @media_file.destroy
+    redirect_to media_files_path, notice: 'Successfully deleted file'
+
 
   end
 

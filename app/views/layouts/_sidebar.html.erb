@@ -97,9 +97,9 @@
      </div>
  </div>
  <!--Mobile responsive sidebar-->
- <div class="w-64 z-20 absolute bg-siteBlue-500 shadow min-h-screen flex-col justify-between sm:hidden pb-12 transition duration-150 ease-in-out"
-     id="mobile-nav">
-     <div id="openSideBar"
+ <div data-controller="sidebar" class="w-64 z-20 absolute bg-siteBlue-500 shadow min-h-screen flex-col justify-between sm:hidden pb-12 transition duration-50 ease-in-out"
+     id="mobile-nav" >
+     <div id="openSideBar" data-sidebar-target="open" data-action="click->sidebar#openSidebar"
          class="h-10 w-10 bg-siteBlue-500 hidden absolute right-0 mt-16 -mr-10 flex items-center shadow rounded-tr rounded-br justify-center cursor-pointer"
         >
          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-adjustments" width="20" height="20"
@@ -117,7 +117,7 @@
              <line x1="18" y1="9" x2="18" y2="20" />
          </svg>
      </div>
-     <div id="closeSideBar"
+     <div id="closeSideBar" data-sidebar-target="close" data-action="click->sidebar#closeSidebar"
          class="h-10 w-10 bg-gray-800 absolute right-0 mt-16 -mr-10 flex items-center shadow rounded-tr rounded-br justify-center cursor-pointer text-white"
          >
          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="20" height="20"
