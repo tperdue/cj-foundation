@@ -2,7 +2,10 @@
   <h2 class="text-gray-700 text-2xl  mb-4 sm:mb-0">Home Page</h2>
 </div>
 
+
 <div data-controller="tab" class="container mx-auto grid items-start  sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 md:mt-8 gap-8">
+
+  <%=form_for(@home_page, :url => home_page_path, :method => 'post')   do |form| %>
   <div class=" w-11/12 md:w-full rounded shadow bg-white">
     <!-- Tabs -->
     <div class="bg-gray-100 md:flex items-stretch w-full border border-gray-100">
@@ -44,12 +47,16 @@
         <p class="ml-2">Feature Section</p>
       </div>
     </div>
-   <!-- End Tabs -->
+    <!-- End Tabs -->
 
     <!-- Panes -->
+
+    <!-- Hero Edit -->
     <div class="w-full px-8 py-6 border-b border-gray-300" data-tab-target="pane" data-pane-id="1">
+
       <div class="flex flex-col xl:w-3/5 lg:w-2/6 w-full">
-        <label for="title" class="pb-2 text-sm font-normal text-gray-800">Title Text</label>
+        <%= form.label :hero_title, :class => "pb-2 text-sm font-normal text-gray-800" %>
+
         <input type="text" id="title" name="title" class="border border-gray-300 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 text-gray-800" placeholder="Iceland" required="">
       </div>
       <div class="mt-6 flex flex-col w-full">
@@ -57,6 +64,7 @@
         <textarea id="content" name="content" class="border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 resize-none text-gray-800" placeholder="Iceland is one the most beautiful countires" rows="5" required=""></textarea>
       </div>
     </div>
+    <!-- End Hero Edit -->
 
     <div class="hidden w-full px-8 py-6 border-b border-gray-300" data-tab-target="pane" data-pane-id="2">
       <div class="flex flex-col xl:w-3/5 lg:w-2/6 w-full">
@@ -70,5 +78,7 @@
     </div>
     <!-- End Panes -->
   </div>
+
+    <% end %>
 
 </div>
