@@ -16,13 +16,30 @@ class HomePagesController < ApplicationController
     @home_page = HomePage.active
   end
 
+  def update
+    @home_page = HomePage.find(params[:id])
+    if @home_page.update(home_page_file_params)
+
+      redirect_to edit_home_page_path(@home_page), notice: 'Successfully home page'
+    else
+
+      render('edit')
+    end
+  end
+
   def show
 
   end
 
 
-  def update
 
+  private
+
+  def home_page_file_params
+    params.require(:home_page).permit(:hero_title,
+                                      :hero_description,
+                                      :hero_image
+                                     )
   end
 
 end

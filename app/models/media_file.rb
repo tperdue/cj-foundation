@@ -4,7 +4,7 @@ class MediaFile < ApplicationRecord
   validates_presence_of :file_type
   validates_uniqueness_of :name
   validates_inclusion_of :file_type, :in => ['document', 'image', 'video', 'audio']
-  validates :file, content_type:[
+  validates :file, content_type: [
     'application/msword',
     'application/pdf',
     'audio/mpeg',

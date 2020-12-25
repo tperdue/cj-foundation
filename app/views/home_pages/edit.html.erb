@@ -5,7 +5,7 @@
 
 <div data-controller="tab" class="container mx-auto grid items-start  sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 md:mt-8 gap-8">
 
-  <%=form_for(@home_page, :url => home_page_path, :method => 'post')   do |form| %>
+  <%=form_for(@home_page, :url => home_page_path, :method => 'put')   do |form| %>
   <div class=" w-11/12 md:w-full rounded shadow bg-white">
     <!-- Tabs -->
     <div class="bg-gray-100 md:flex items-stretch w-full border border-gray-100">
@@ -56,29 +56,57 @@
 
       <div class="flex flex-col xl:w-3/5 lg:w-2/6 w-full">
         <%= form.label :hero_title, 'Title', :class => "pb-2 text-sm font-normal text-gray-800" %>
+        <%= form.text_field :hero_title, :placeholder => "Enter title" , :class => "border border-gray-300 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 text-gray-800" %>
 
-        <input type="text" id="title" name="title" class="border border-gray-300 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 text-gray-800" placeholder="Iceland" required="">
+
       </div>
       <div class="mt-6 flex flex-col w-full">
         <label for="content" class="pb-2 text-sm font-normal text-gray-800">Description Text</label>
-        <textarea id="content" name="content" class="border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 resize-none text-gray-800" placeholder="Iceland is one the most beautiful countires" rows="5" required=""></textarea>
+        <textarea id="content" name="content" class="border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 resize-none text-gray-800" placeholder="Iceland is one the most beautiful countires" rows="5" ></textarea>
       </div>
+
+      <div class="mt-6 lg:flex w-full">
+
+
+        <div class="flex flex-col w-full lg:w-1/2 lg:pr-8">
+          <%= form.label :hero_image, :class => "pb-2 text-sm font-normal text-gray-800" %>
+          <%= form.file_field :hero_image, :class => "border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm  focus:border-indigo-700 resize-none text-gray-800" %>
+        </div>
+
+        <div class="flex flex-col w-1/2 ">
+          <div class="">
+
+            <% if @home_page.hero_image.attached?  %>
+              <%= image_tag @home_page.hero_image, :class => "object-cover  w-full h-full"  %>
+            <% else %>
+              <%= image_tag  'https://via.placeholder.com/150', :class => "absolute inset-0 object-cover object-center w-full h-full"  %>
+            <% end %>
+
+
+          </div>
+        </div>
+
+      </div>
+
     </div>
     <!-- End Hero Edit -->
 
     <div class="hidden w-full px-8 py-6 border-b border-gray-300" data-tab-target="pane" data-pane-id="2">
       <div class="flex flex-col xl:w-3/5 lg:w-2/6 w-full">
         <label for="title" class="pb-2 text-sm font-normal text-gray-800">Post title</label>
-        <input type="text" id="title" name="title" class="border border-gray-300 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 text-gray-800" placeholder="Iceland" required="">
+        <input type="text" id="title" name="title" class="border border-gray-300 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 text-gray-800" placeholder="Iceland" >
       </div>
       <div class="mt-6 flex flex-col w-full">
         <label for="content" class="pb-2 text-sm font-normal text-gray-800">Text Content</label>
-        <textarea id="content" name="content" class="border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 resize-none text-gray-800" placeholder="Iceland is one the most beautiful countires" rows="5" required=""></textarea>
+        <textarea id="content" name="content" class="border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 resize-none text-gray-800" placeholder="Iceland is one the most beautiful countires" rows="5" ></textarea>
       </div>
     </div>
     <!-- End Panes -->
+
+
   </div>
 
+    <%= form.submit("Save Home Page", {:class => "w-11/12   sm:w-auto mt-10 mb-4 sm:mb-0 sm:mr-4 py-2 px-3 rounded transition duration-150 ease-in-out flex items-center justify-center bg-blue-500 hover:bg-blue-600 focus:bg-blue-600 focus:outline-none text-sm text-white text-center"})%>
     <% end %>
 
 </div>

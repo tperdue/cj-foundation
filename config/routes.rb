@@ -6,18 +6,18 @@ Rails.application.routes.draw do
   devise_for :users
   root 'page#home'
 
-  #Pages
+  # Pages
   match '/about', to: 'page#about', via: :get, as: 'about'
   match '/contact', to: 'page#contact', via: :get, as: 'contact'
 
-  #Manager
+  # Manager
   match '/manager', to: 'manager#dashboard', via: :get, as: 'dashboard'
 
-  #File Manager
+  # File Manager
   resources :media_files, path: '/manager/media'
 
-  #HomePage
-  resources :home_pages, path: '/manager/pages/home_page'
+  # HomePage
+  resources :home_pages, path: '/manager/home_pages'
 
 
 
