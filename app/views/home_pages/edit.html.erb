@@ -22,8 +22,9 @@
 
         <p class="ml-2">Introduction Section</p>
       </div>
+      <!-- End Intro Tab -->
 
-      <!-- Feature Tab -->
+      <!-- About Section Tab -->
       <div data-tab-id="2" data-action="click->tab#activateTab" data-tab-target="tabs" class="cursor-pointer text-gray-700 px-8 py-4 flex justify-center items-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="#8C8C8C8C" fill="none" stroke-linecap="round" stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -35,7 +36,7 @@
         </svg>
         <p class="ml-2">About Section</p>
       </div>
-
+      <!-- End About Section Tab -->
 
       <div data-tab-id="3" data-action="click->tab#activateTab" data-tab-target="tabs" class="cursor-pointer text-gray-700 px-8 py-4 flex justify-center items-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -61,15 +62,17 @@
 
       </div>
       <div class="mt-6 flex flex-col w-full">
-        <label for="content" class="pb-2 text-sm font-normal text-gray-800">Description Text</label>
-        <textarea id="content" name="content" class="border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 resize-none text-gray-800" placeholder="Iceland is one the most beautiful countires" rows="5" ></textarea>
+        <%=form.label :hero_description, "Intro Area Description", :class => "pb-2 text-sm font-normal text-gray-800" %>
+        <%=form.text_area :hero_description, :class => "border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 resize-none text-gray-800" %>
+
+
       </div>
 
       <div class="mt-6 lg:flex w-full">
 
 
         <div class="flex flex-col w-full lg:w-1/2 lg:pr-8">
-          <%= form.label :hero_image, :class => "pb-2 text-sm font-normal text-gray-800" %>
+          <%= form.label :hero_image, "Intro Area Image", :class => "pb-2 text-sm font-normal text-gray-800" %>
           <%= form.file_field :hero_image, :class => "border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm  focus:border-indigo-700 resize-none text-gray-800" %>
         </div>
 
@@ -79,7 +82,7 @@
             <% if @home_page.hero_image.attached?  %>
               <%= image_tag @home_page.hero_image, :class => "object-cover  w-full h-full"  %>
             <% else %>
-              <%= image_tag  'https://via.placeholder.com/150', :class => "absolute inset-0 object-cover object-center w-full h-full"  %>
+              <%= image_tag  'https://via.placeholder.com/150', :class => "object-cover object-center w-full h-full"  %>
             <% end %>
 
 
@@ -91,16 +94,45 @@
     </div>
     <!-- End Hero Edit -->
 
+    <!-- About Section Edit -->
     <div class="hidden w-full px-8 py-6 border-b border-gray-300" data-tab-target="pane" data-pane-id="2">
       <div class="flex flex-col xl:w-3/5 lg:w-2/6 w-full">
-        <label for="title" class="pb-2 text-sm font-normal text-gray-800">Post title</label>
-        <input type="text" id="title" name="title" class="border border-gray-300 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 text-gray-800" placeholder="Iceland" >
+        <%= form.label :about_section_title, 'Title', :class => "pb-2 text-sm font-normal text-gray-800" %>
+        <%= form.text_field :about_section_title, :placeholder => "Enter title" , :class => "border border-gray-300 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 text-gray-800" %>
+
+
       </div>
       <div class="mt-6 flex flex-col w-full">
-        <label for="content" class="pb-2 text-sm font-normal text-gray-800">Text Content</label>
-        <textarea id="content" name="content" class="border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 resize-none text-gray-800" placeholder="Iceland is one the most beautiful countires" rows="5" ></textarea>
+        <%=form.label :about_section_description, "About Description", :class => "pb-2 text-sm font-normal text-gray-800" %>
+        <%=form.text_area :about_section_description, :class => "border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 resize-none text-gray-800" %>
+
+      </div>
+
+      <div class="mt-6 lg:flex w-full">
+
+
+        <div class="flex flex-col w-full lg:w-1/2 lg:pr-8">
+          <%= form.label :about_image, "About Section Image", :class => "pb-2 text-sm font-normal text-gray-800" %>
+          <%= form.file_field :about_image, :class => "border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm  focus:border-indigo-700 resize-none text-gray-800" %>
+        </div>
+
+        <div class="flex flex-col w-1/2 ">
+
+
+            <% if @home_page.about_image.attached?  %>
+              <%= image_tag @home_page.about_image, :class => "object-cover  w-full h-full"  %>
+            <% else %>
+              <%= image_tag  'https://via.placeholder.com/150', :class => "object-cover w-full h-full"  %>
+            <% end %>
+
+
+
+        </div>
+
       </div>
     </div>
+    <!-- End About Section Edit -->
+
     <!-- End Panes -->
 
 

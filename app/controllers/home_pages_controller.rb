@@ -38,7 +38,10 @@ class HomePagesController < ApplicationController
   def home_page_file_params
     params.require(:home_page).permit(:hero_title,
                                       :hero_description,
-                                      :hero_image
+                                      :hero_image,
+                                      :about_section_title,
+                                      :about_section_description,
+                                      :about_image
                                      )
   end
 

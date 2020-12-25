@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_23_211707) do
+ActiveRecord::Schema.define(version: 2020_12_25_044754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "about_pages", force: :cascade do |t|
+    t.string "identifier"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -50,6 +56,8 @@ ActiveRecord::Schema.define(version: 2020_12_23_211707) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "hero_title"
     t.text "hero_description"
+    t.string "about_section_title"
+    t.string "about_section_description"
   end
 
   create_table "media_files", force: :cascade do |t|
@@ -63,6 +71,14 @@ ActiveRecord::Schema.define(version: 2020_12_23_211707) do
   create_table "pages", force: :cascade do |t|
     t.string "title"
     t.boolean "active"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "site_infos", force: :cascade do |t|
+    t.string "contact_email"
+    t.string "contact_phone"
+    t.string "site_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
