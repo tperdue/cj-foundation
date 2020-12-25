@@ -7,4 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 
-if(HomePage.find())
+if(HomePage.active.nil?)
+  HomePage.new({:identifier => "active"})
+end
