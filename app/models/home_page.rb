@@ -13,6 +13,6 @@ class HomePage < ApplicationRecord
 
   ]
 
-  scope :active, -> { where(identifier: 'active').first }
+  scope :active, -> { where(identifier: 'active')}
 
 end

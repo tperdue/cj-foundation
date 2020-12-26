@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
 
 
-  resources :site_infos
+
   resources :home_pages
   devise_for :users
   root 'page#home'
@@ -23,6 +23,9 @@ Rails.application.routes.draw do
 
   # AboutPage
   resources :about_pages, path: '/manager/about_pages'
+
+  # Site Settings
+  resources :site_infos, path: '/manager/site_settings'
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

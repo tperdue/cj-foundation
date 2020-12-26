@@ -1,0 +1,94 @@
+<div class=" w-11/12 md:w-full bg-white py-5 sm:mb-4 px-5 px-10 sm:shadow rounded">
+  <h2 class="text-gray-700 text-2xl  mb-4 sm:mb-0">Site Settings</h2>
+</div>
+
+
+<div data-controller="tab" class="container mx-auto grid items-start  sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 md:mt-8 gap-8">
+
+  <%=form_for(@site_info, :url => site_info_path, :method => 'put')   do |form| %>
+    <div class=" w-11/12 md:w-full rounded shadow bg-white">
+      <!-- Tabs -->
+      <div class="bg-gray-100 md:flex items-stretch w-full border border-gray-100">
+        <!-- Site Info Tab -->
+        <div data-tab-id="1" data-action="click->tab#activateTab" data-tab-target="tabs" class="bg-white text-gray-700 px-8 py-4 flex justify-center items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-text" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z"></path>
+            <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+            <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
+            <line x1="9" y1="9" x2="10" y2="9"></line>
+            <line x1="9" y1="13" x2="15" y2="13"></line>
+            <line x1="9" y1="17" x2="15" y2="17"></line>
+          </svg>
+
+          <p class="ml-2">Site Info</p>
+        </div>
+        <!-- End Site Info Tab -->
+
+        <!-- Contact Tab -->
+        <div data-tab-id="2" data-action="click->tab#activateTab" data-tab-target="tabs" class="cursor-pointer text-gray-700 px-8 py-4 flex justify-center items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="#8C8C8C8C" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <polyline points="15 6 9 12 15 18"></polyline>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="#8C8C8C8C" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <polyline points="9 6 15 12 9 18"></polyline>
+          </svg>
+          <p class="ml-2">Contact Info</p>
+        </div>
+        <!-- End Contact Tab -->
+
+
+      </div>
+      <!-- End Tabs -->
+
+      <!-- Panes -->
+
+      <!-- Site Info Edit -->
+      <div class="w-full px-8 py-6 border-b border-gray-300" data-tab-target="pane" data-pane-id="1">
+
+        <div class="flex flex-col xl:w-3/5 lg:w-2/6 w-full">
+          <%= form.label :site_name, 'Company Name', :class => "pb-2 text-sm font-normal text-gray-800" %>
+          <%= form.text_field :site_name, :placeholder => "Enter Company Name" , :class => "border border-gray-300 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 text-gray-800" %>
+
+
+        </div>
+        <div class="mt-6 flex flex-col w-full">
+          <%=form.label :site_description, "Company Description", :class => "pb-2 text-sm font-normal text-gray-800" %>
+          <%=form.text_area :site_description, :class => "border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 resize-none text-gray-800" %>
+
+
+        </div>
+
+
+
+      </div>
+      <!-- End Site Info Edit -->
+
+      <!-- Contact Info Edit -->
+      <div class="hidden w-full px-8 py-6 border-b border-gray-300" data-tab-target="pane" data-pane-id="2">
+        <div class="flex flex-col xl:w-3/5 lg:w-2/6 w-full">
+          <%= form.label :contact_email, 'Company Email Address', :class => "pb-2 text-sm font-normal text-gray-800" %>
+          <%= form.text_field :contact_email, :placeholder => "Enter an email address" , :class => "border border-gray-300 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 text-gray-800" %>
+
+
+        </div>
+        <div class="mt-6 flex flex-col w-full">
+          <%=form.label :contact_phone, "Company Phone Number", :class => "pb-2 text-sm font-normal text-gray-800" %>
+          <%=form.text_area :contact_phone, :class => "border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 resize-none text-gray-800" %>
+
+        </div>
+
+
+      </div>
+      <!-- End About Section Edit -->
+
+      <!-- End Panes -->
+
+
+    </div>
+
+    <%= form.submit("Save Site Settings", {:class => "w-11/12   sm:w-auto mt-10 mb-4 sm:mb-0 sm:mr-4 py-2 px-3 rounded transition duration-150 ease-in-out flex items-center justify-center bg-blue-500 hover:bg-blue-600 focus:bg-blue-600 focus:outline-none text-sm text-white text-center"})%>
+  <% end %>
+
+</div>

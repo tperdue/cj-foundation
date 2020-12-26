@@ -1,7 +1,6 @@
 class PageController < ApplicationController
+  before_action :get_home_page, :get_site_settings
   def home
-    @home_page = HomePage.active
-    
   end
 
   def about

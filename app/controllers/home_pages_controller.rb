@@ -2,9 +2,9 @@ class HomePagesController < ApplicationController
   layout "manager"
 
   before_action :authenticate_user!
+  before_action :get_site_settings, :get_home_page
 
   def new
-    @home_page = HomePage.active.nil? ? HomePage.new : HomePage.active
     redirect_to edit_home_page_path(@home_page)
   end
 
@@ -13,7 +13,7 @@ class HomePagesController < ApplicationController
   end
 
   def edit
-    @home_page = HomePage.active
+    @home_page = HomePage.find(params[:id])
   end
 
   def update
