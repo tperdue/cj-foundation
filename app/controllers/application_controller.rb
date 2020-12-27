@@ -1,7 +1,11 @@
 class ApplicationController < ActionController::Base
 
+  before_action :get_home_page, :get_site_settings
   protected
 
+  def get_current_user
+    @user = current_user
+  end
   def get_home_page
     if HomePage.active.empty?
       @home_page = HomePage.new({:identifier => "active"})

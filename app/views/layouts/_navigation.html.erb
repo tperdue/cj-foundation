@@ -42,7 +42,7 @@
                     <circle cx="12" cy="7" r="4" />
                     <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
                   </svg>
-                  <span class="text-sm ml-2">My Profile</span>
+                  <span class="text-sm ml-2"><%= link_to 'My Profile', edit_user_path(@user.id) %></span>
                 </div>
               </li>
               <li class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mt-2">
@@ -81,7 +81,7 @@
             <circle cx="12" cy="7" r="4" />
             <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
           </svg>
-          <span class="text-sm ml-2">My Profile</span>
+          <span class="text-sm ml-2"><%= link_to 'My Profile', edit_user_path(@user.id) %></span>
         </div>
       </li>
       <li class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mt-2">

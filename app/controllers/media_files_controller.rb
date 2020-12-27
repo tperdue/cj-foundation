@@ -2,7 +2,7 @@ class MediaFilesController < ApplicationController
   layout "manager"
 
   before_action :authenticate_user!
-  before_action :get_home_page, :get_site_settings
+  before_action :get_site_settings, :get_home_page, :get_current_user
 
 
   def index

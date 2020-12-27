@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
-  
+
+  devise_for :users, skip: [:registrations]
+  resources :users, :only => [:index, :show, :edit, :new, :create,:update]
 
 
 
-  resources :home_pages
-  devise_for :users
+
+
   root 'page#home'
 
   # Pages
