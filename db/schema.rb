@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_28_161909) do
+ActiveRecord::Schema.define(version: 2020_12_31_195228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,18 @@ ActiveRecord::Schema.define(version: 2020_12_28_161909) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "top_title"
     t.text "top_description"
+    t.string "scholar1_name"
+    t.integer "scholar1_grad_year"
+    t.string "scholar1_major"
+    t.string "scholar1_testimonial"
+    t.string "scholar2_name"
+    t.integer "scholar2_grad_year"
+    t.string "scholar2_major"
+    t.string "scholar2_testimonial"
+    t.string "scholar3_name"
+    t.integer "scholar3_grad_year"
+    t.string "scholar3_major"
+    t.string "scholar3_testimonial"
   end
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -103,6 +115,11 @@ ActiveRecord::Schema.define(version: 2020_12_28_161909) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "identifier"
     t.text "site_description"
+    t.text "contact_address_1"
+    t.text "contact_address_2"
+    t.text "contact_city"
+    t.text "contact_state"
+    t.text "contact_zip"
   end
 
   create_table "text_contents", force: :cascade do |t|

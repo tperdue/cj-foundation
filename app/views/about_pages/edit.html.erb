@@ -34,7 +34,7 @@
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <polyline points="9 6 15 12 9 18"></polyline>
           </svg>
-          <p class="ml-2">Recipient #1</p>
+          <p class="ml-2">Scholarship Recipient #1</p>
         </div>
         <!-- End Recipient #1 Tab -->
 
@@ -47,9 +47,22 @@
             <line x1="4" y1="12" x2="20" y2="12"></line>
             <line x1="4" y1="18" x2="20" y2="18"></line>
           </svg>
-          <p class="ml-2">Feature Section</p>
+          <p class="ml-2">Scholarship Recipient #2</p>
         </div>
         <!-- End Recipient #2 Tab -->
+
+        <!-- Recipient #3 Tab -->
+        <div data-tab-id="4" data-action="click->tab#activateTab" data-tab-target="tabs" class="cursor-pointer text-gray-700 px-8 py-4 flex justify-center items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z"></path>
+            <line x1="4" y1="6" x2="20" y2="6"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="18" x2="20" y2="18"></line>
+          </svg>
+          <p class="ml-2">Scholarship Recipient #3</p>
+        </div>
+        <!-- End Recipient #3 Tab -->
+
 
       </div>
       <!-- End Tabs -->
@@ -100,16 +113,170 @@
 
 
 
-      <!-- About Section Edit -->
+      <!-- Scholarship Recipient #1 Edit -->
+      <div class="hidden w-full px-8 py-6 border-b border-gray-300" data-tab-target="pane" data-pane-id="2">
 
-      <!-- End About Section Edit -->
+        <div class="flex flex-col xl:w-3/5 lg:w-2/6 w-full">
+          <%= form.label :scholar1_name, "Scholar Recipient's Name", :class => "pb-2 text-sm font-normal text-gray-800" %>
+          <%= form.text_field :scholar1_name, :placeholder => "Enter Name" , :class => "border border-gray-300 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 text-gray-800" %>
+        </div>
+
+        <div class="mt-6 flex flex-col xl:w-3/5 lg:w-2/6 w-full">
+          <%= form.label :scholar1_major, "Scholar Recipient's Major", :class => "pb-2 text-sm font-normal text-gray-800" %>
+          <%= form.text_field :scholar1_major, :placeholder => "Enter Major" , :class => "border border-gray-300 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 text-gray-800" %>
+        </div>
+
+        <div class="mt-6 flex flex-col xl:w-3/5 lg:w-2/6 w-full">
+          <%= form.label :scholar1_grad_year, "Scholar Recipient's Graduation Year", :class => "pb-2 text-sm font-normal text-gray-800" %>
+          <%= form.text_field :scholar1_grad_year, :placeholder => "Enter Graduation Year" , :class => "border border-gray-300 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 text-gray-800" %>
+        </div>
+
+
+        <div class="mt-6 flex flex-col w-full">
+          <%=form.label :scholar1_testimonial, "Testimonial", :class => "pb-2 text-sm font-normal text-gray-800" %>
+          <%=form.text_area :scholar1_testimonial, rows: 10, :class => "border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 resize-none text-gray-800" %>
+
+
+        </div>
+
+        <div class="mt-6 lg:flex w-full">
+
+
+          <div class="flex flex-col w-full lg:w-1/2 lg:pr-8">
+            <%= form.label :scholar1_image, "Scholar Recipient's  Image", :class => "pb-2 text-sm font-normal text-gray-800" %>
+            <%= form.file_field :scholar1_image, :class => "border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm  focus:border-indigo-700 resize-none text-gray-800" %>
+          </div>
+
+          <div class="flex flex-col w-1/2 ">
+            <div class="">
+
+              <% if @about_page.scholar1_image.attached?  %>
+                <%= image_tag @about_page.scholar1_image, :class => "object-cover  w-full h-full"  %>
+              <% else %>
+                <%= image_tag  'https://via.placeholder.com/150', :class => "object-cover object-center w-full h-full"  %>
+              <% end %>
+
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- End Scholarship Recipient #1 Edit -->
+
+
+      <!-- Scholarship Recipient #2 Edit -->
+      <div class="hidden w-full px-8 py-6 border-b border-gray-300" data-tab-target="pane" data-pane-id="3">
+
+        <div class="flex flex-col xl:w-3/5 lg:w-2/6 w-full">
+          <%= form.label :scholar2_name, "Scholar Recipient's Name", :class => "pb-2 text-sm font-normal text-gray-800" %>
+          <%= form.text_field :scholar2_name, :placeholder => "Enter Name" , :class => "border border-gray-300 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 text-gray-800" %>
+        </div>
+
+        <div class="mt-6 flex flex-col xl:w-3/5 lg:w-2/6 w-full">
+          <%= form.label :scholar2_major, "Scholar Recipient's Major", :class => "pb-2 text-sm font-normal text-gray-800" %>
+          <%= form.text_field :scholar2_major, :placeholder => "Enter Major" , :class => "border border-gray-300 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 text-gray-800" %>
+        </div>
+
+        <div class="mt-6 flex flex-col xl:w-3/5 lg:w-2/6 w-full">
+          <%= form.label :scholar2_grad_year, "Scholar Recipient's Graduation Year", :class => "pb-2 text-sm font-normal text-gray-800" %>
+          <%= form.text_field :scholar2_grad_year, :placeholder => "Enter Graduation Year" , :class => "border border-gray-300 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 text-gray-800" %>
+        </div>
+
+
+        <div class="mt-6 flex flex-col w-full">
+          <%=form.label :scholar2_testimonial, "Testimonial", :class => "pb-2 text-sm font-normal text-gray-800" %>
+          <%=form.text_area :scholar2_testimonial, rows: 10, :class => "border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 resize-none text-gray-800" %>
+
+
+        </div>
+
+        <div class="mt-6 lg:flex w-full">
+
+
+          <div class="flex flex-col w-full lg:w-1/2 lg:pr-8">
+            <%= form.label :scholar2_image, "Scholar Recipient's  Image", :class => "pb-2 text-sm font-normal text-gray-800" %>
+            <%= form.file_field :scholar2_image, :class => "border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm  focus:border-indigo-700 resize-none text-gray-800" %>
+          </div>
+
+          <div class="flex flex-col w-1/2 ">
+            <div class="">
+
+              <% if @about_page.scholar2_image.attached?  %>
+                <%= image_tag @about_page.scholar2_image, :class => "object-cover  w-full h-full"  %>
+              <% else %>
+                <%= image_tag  'https://via.placeholder.com/150', :class => "object-cover object-center w-full h-full"  %>
+              <% end %>
+
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- End Scholarship Recipient #2 Edit -->
+
+
+      <!-- Scholarship Recipient #3 Edit -->
+      <div class="hidden w-full px-8 py-6 border-b border-gray-300" data-tab-target="pane" data-pane-id="4">
+
+        <div class="flex flex-col xl:w-3/5 lg:w-2/6 w-full">
+          <%= form.label :scholar3_name, "Scholar Recipient's Name", :class => "pb-2 text-sm font-normal text-gray-800" %>
+          <%= form.text_field :scholar3_name, :placeholder => "Enter Name" , :class => "border border-gray-300 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 text-gray-800" %>
+        </div>
+
+        <div class="mt-6 flex flex-col xl:w-3/5 lg:w-2/6 w-full">
+          <%= form.label :scholar3_major, "Scholar Recipient's Major", :class => "pb-2 text-sm font-normal text-gray-800" %>
+          <%= form.text_field :scholar3_major, :placeholder => "Enter Major" , :class => "border border-gray-300 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 text-gray-800" %>
+        </div>
+
+        <div class="mt-6 flex flex-col xl:w-3/5 lg:w-2/6 w-full">
+          <%= form.label :scholar3_grad_year, "Scholar Recipient's Graduation Year", :class => "pb-2 text-sm font-normal text-gray-800" %>
+          <%= form.text_field :scholar3_grad_year, :placeholder => "Enter Graduation Year" , :class => "border border-gray-300 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 text-gray-800" %>
+        </div>
+
+
+        <div class="mt-6 flex flex-col w-full">
+          <%=form.label :scholar3_testimonial, "Testimonial", :class => "pb-2 text-sm font-normal text-gray-800" %>
+          <%=form.text_area :scholar3_testimonial, rows: 10, :class => "border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 resize-none text-gray-800" %>
+
+
+        </div>
+
+        <div class="mt-6 lg:flex w-full">
+
+
+          <div class="flex flex-col w-full lg:w-1/2 lg:pr-8">
+            <%= form.label :scholar3_image, "Scholar Recipient's  Image", :class => "pb-2 text-sm font-normal text-gray-800" %>
+            <%= form.file_field :scholar3_image, :class => "border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm  focus:border-indigo-700 resize-none text-gray-800" %>
+          </div>
+
+          <div class="flex flex-col w-1/2 ">
+            <div class="">
+
+              <% if @about_page.scholar3_image.attached?  %>
+                <%= image_tag @about_page.scholar3_image, :class => "object-cover  w-full h-full"  %>
+              <% else %>
+                <%= image_tag  'https://via.placeholder.com/150', :class => "object-cover object-center w-full h-full"  %>
+              <% end %>
+
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- End Scholarship Recipient #3 Edit -->
 
       <!-- End Panes -->
 
 
     </div>
 
-    <%= form.submit("Save Home Page", {:class => "w-11/12   sm:w-auto mt-10 mb-4 sm:mb-0 sm:mr-4 py-2 px-3 rounded transition duration-150 ease-in-out flex items-center justify-center bg-blue-500 hover:bg-blue-600 focus:bg-blue-600 focus:outline-none text-sm text-white text-center"})%>
+    <%= form.submit("Save About Page", {:class => "w-11/12   sm:w-auto mt-10 mb-4 sm:mb-0 sm:mr-4 py-2 px-3 rounded transition duration-150 ease-in-out flex items-center justify-center bg-blue-500 hover:bg-blue-600 focus:bg-blue-600 focus:outline-none text-sm text-white text-center"})%>
   <% end %>
 
 </div>

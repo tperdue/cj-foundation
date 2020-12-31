@@ -39,7 +39,12 @@ class SiteInfosController < ApplicationController
     params.require(:site_info).permit(:site_name,
                                       :site_description,
                                       :contact_phone,
-                                      :contact_email
+                                      :contact_email,
+                                      :contact_address_1,
+                                      :contact_address_2,
+                                      :contact_city,
+                                      :contact_state,
+                                      :contact_zip
 
     )
   end

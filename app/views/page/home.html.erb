@@ -7,10 +7,10 @@
 
         <span class="text-3xl lg:text-4xl xl:text-5xl leading-tight font-bold"><%= @home_page.hero_title %></span>
         <h1 class="text-base leading-snug text-gray-700 mt-4 md:w-1/2 lg:w-11/12">
-          At Memories 2 Digital we're experts at helping protect your precious memories with our range of professional scanning services.
+          <%= @home_page.hero_description %>
         </h1>
-        <a href="/photo-scanning/" class="w-full block sm:inline-block sm:w-auto px-6 py-4 bg-blue-600 text-white rounded-lg mt-8">Photo Scanning</a>
-        <a href="/slide-scanning/" class="w-full block sm:inline-block sm:w-auto px-6 py-4 bg-blue-600 text-white rounded-lg mt-8 md:ml-4">Slide Scanning</a>
+        <%= link_to "Learn More", about_path, class: "w-full block sm:inline-block sm:w-auto px-6 py-4 bg-blue-600 text-white rounded-lg mt-8"  %>
+
       </div>
 
     </div>

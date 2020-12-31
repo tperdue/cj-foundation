@@ -1,49 +1,41 @@
 
-<nav class="bg-siteBlue-500 shadow">
+<nav class="bg-siteBlue-500 shadow" data-controller="frontnav">
   <div class="container mx-auto px-6">
     <div class="flex items-center justify-between">
       <div class="inset-y-0 left-0 flex items-center xl:hidden">
         <div class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-100 focus:outline-none transition duration-150 ease-in-out">
-          <ul class="p-2 border-r bg-white absolute rounded top-0 left-0 right-0 shadow mt-12 md:mt-12 hidden">
+          <ul data-frontnav-target="links" class="p-2 border-r bg-white absolute rounded top-0 left-0 right-0 shadow mt-12 md:mt-12 hidden">
             <li class="flex xl:hidden cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mt-2 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
               <div class="flex items-center">
 
-                <span class="ml-2 font-bold">News & Events</span>
+                <span class="ml-2 font-bold"><%= link_to 'News & Events', events_path %></span>
               </div>
             </li>
             <li class="flex xl:hidden flex-col cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none flex justify-center">
               <div class="flex items-center">
 
-                <span class="ml-2 font-bold">About</span>
+                <span class="ml-2 font-bold"><%= link_to 'About', about_path %></span>
               </div>
             </li>
             <li class="flex xl:hidden flex-col cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none flex justify-center">
               <div class="flex items-center">
 
-                <span class="ml-2 font-bold">Contact</span>
+                <span class="ml-2 font-bold"><%= link_to 'Contact', contact_path %></span>
               </div>
             </li>
 
-            <li class="border-b border-gray-300  flex xl:hidden cursor-pointer text-gray-600 text-sm leading-3 tracking-normal  pt-2 pb-4 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none">
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-code" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z"></path>
-                <polyline points="7 8 3 12 7 16"></polyline>
-                <polyline points="17 8 21 12 17 16"></polyline>
-                <line x1="14" y1="4" x2="10" y2="20"></line>
-              </svg>
-              <span class="ml-2 font-bold"></span>
-            </li>
+
 
 
           </ul>
-          <div class="visible xl:hidden">
-            <svg onclick="MenuHandler(this,true)" aria-haspopup="true" aria-label="Main Menu" xmlns="http://www.w3.org/2000/svg"  class="show-m-menu icon icon-tabler icon-tabler-menu" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <div data-frontnav-target="open" class="visible xl:hidden">
+            <svg  data-action="click->frontnav#openNav" aria-haspopup="true" aria-label="Main Menu" xmlns="http://www.w3.org/2000/svg"  class="show-m-menu icon icon-tabler icon-tabler-menu" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z"></path>
               <line x1="4" y1="8" x2="20" y2="8"></line>
               <line x1="4" y1="16" x2="20" y2="16"></line>
             </svg>
           </div>
-          <div class="xl:hidden hidden close-m-menu" onclick="MenuHandler(this,false)">
+          <div data-frontnav-target="close" class="xl:hidden hidden close-m-menu" data-action="click->frontnav#closeNav">
             <svg aria-label="Close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z" />
               <line x1="18" y1="6" x2="6" y2="18" />
@@ -53,17 +45,20 @@
         </div>
       </div>
       <div class="w-full sm:w-auto flex items-center justify-end sm:items-stretch sm:justify-start">
-        <div class="flex items-center">
+        <a href="<%= root_path %>" class="block flex items-center text-center">
           <svg aria-label="Home" id="logo" enable-background="new 0 0 300 300" height="44" viewBox="0 0 300 300" width="43" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
             <g>
-              <path fill="#fff" d="m234.735 35.532c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16zm0 24c-4.412 0-8-3.588-8-8s3.588-8 8-8 8 3.588 8 8-3.588 8-8 8zm-62.529-14c0-2.502 2.028-4.53 4.53-4.53s4.53 2.028 4.53 4.53c0 2.501-2.028 4.529-4.53 4.529s-4.53-2.027-4.53-4.529zm89.059 60c0 2.501-2.028 4.529-4.53 4.529s-4.53-2.028-4.53-4.529c0-2.502 2.028-4.53 4.53-4.53s4.53 2.029 4.53 4.53zm-40.522-5.459-88-51.064c-1.242-.723-2.773-.723-4.016 0l-88 51.064c-1.232.715-1.992 2.033-1.992 3.459v104c0 1.404.736 2.705 1.938 3.428l88 52.936c.635.381 1.35.572 2.062.572s1.428-.191 2.062-.572l88-52.936c1.201-.723 1.938-2.023 1.938-3.428v-104c0-1.426-.76-2.744-1.992-3.459zm-90.008-42.98 80.085 46.47-52.95 31.289-23.135-13.607v-21.713c0-2.209-1.791-4-4-4s-4 1.791-4 4v21.713l-26.027 15.309c-1.223.719-1.973 2.029-1.973 3.447v29.795l-52 30.727v-94.688zm0 198.707-80.189-48.237 51.467-30.412 24.723 14.539v19.842c0 2.209 1.791 4 4 4s4-1.791 4-4v-19.842l26.027-15.307c1.223-.719 1.973-2.029 1.973-3.447v-31.667l52-30.728v94.729z" />
+              <path fill="#fff" d="m234.735 35.532c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16zm0 24c-4.412 0-8-3.588-8-8s3.588-8 8-8 8 3.588 8 8-3.588 8-8 8zm-62.529-14c0-2.502 2.028-4.53 4.53-4.53s4.53 2.028 4.53 4.53c0 2.501-2.028 4.529-4.53 4.529s-4.53-2.027-4.53-4.529zm89.059 60c0 2.501-2.028 4.529-4.53 4.529s-4.53-2.028-4.53-4.529c0-2.502 2.028-4.53 4.53-4.53s4.53 2.029 4.53 4.53zm-40.522-5.459-88-51.064c-1.242-.723-2.773-.723-4.016 0l-88 51.064c-1.232.715-1.992 2.033-1.992 3.459v104c0 1.404.736 2.705 1.938 3.428l88 52.936c.635.381 1.35.572 2.062.572s1.428-.191 2.062-.572l88-52.936c1.201-.723 1.938-2.023 1.938-3.428v-104c0-1.426-.76-2.744-1.992-3.459zm-90.008-42.98 80.085 46.47-52.95 31.289-23.135-13.607v-21.713c0-2.209-1.791-4-4-4s-4 1.791-4 4v21.713l-26.027 15.309c-1.223.719-1.973 2.029-1.973 3.447v29.795l-52 30.727v-94.688zm0 198.707-80.189-48.237 51.467-30.412 24.723 14.539v19.842c0 2.209 1.791 4 4 4s4-1.791 4-4v-19.842l26.027-15.307c1.223-.719 1.973-2.029 1.973-3.447v-31.667l52-30.728v94.729z" >
+
+              </path>
             </g>
           </svg>
-          <h2 class="hidden sm:block text-base text-white font-bold leading-normal pl-3"><%= link_to @site_info.site_name, root_path %></h2>
-        </div>
+          <h2 class="hidden  sm:inline-block text-base text-white font-bold leading-normal pl-3"><%= @site_info.site_name %></h2>
+        </a>
       </div>
       <div class="flex">
-        <div class="hidden xl:flex md:mr-6 xl:mr-16">
+        <div class="hidden xl:flex md:mr-6 xl:mr-16" >
           <%= link_to "News & Events", events_path, class: "flex px-5 items-center py-6 text-sm leading-5 text-white hover:bg-siteOrange-500 focus:bg-indigo-700 focus:outline-none transition duration-150 ease-in-out" %>
 
 
@@ -74,7 +69,7 @@
 
 
         </div>
-        <div class="hidden sm:flex items-center">
+        <div class="hidden sm:flex items-center" >
           <div class="relative md:mr-6 my-2">
             <button class="bg-siteOrange-500 transition duration-150 ease-in-out hover:bg-siteOrange-400 rounded text-gray-100 text-md px-5 py-2 text-xs focus:outline-none">Donate</button>
           </div>

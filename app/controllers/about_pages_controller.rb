@@ -40,7 +40,23 @@ class AboutPagesController < ApplicationController
     params.require(:about_page).permit(
       :top_title,
       :top_description,
-      :top_image
+      :top_image,
+      :scholar1_name,
+      :scholar1_major,
+      :scholar1_grad_year,
+      :scholar1_testimonial,
+      :scholar1_image,
+      :scholar2_name,
+      :scholar2_major,
+      :scholar2_grad_year,
+      :scholar2_testimonial,
+      :scholar2_image,
+      :scholar3_name,
+      :scholar3_major,
+      :scholar3_grad_year,
+      :scholar3_testimonial,
+      :scholar3_image
+
     )
   end
 end

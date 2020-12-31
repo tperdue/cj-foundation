@@ -38,15 +38,7 @@
       </div>
       <!-- End About Section Tab -->
 
-      <div data-tab-id="3" data-action="click->tab#activateTab" data-tab-target="tabs" class="cursor-pointer text-gray-700 px-8 py-4 flex justify-center items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z"></path>
-          <line x1="4" y1="6" x2="20" y2="6"></line>
-          <line x1="4" y1="12" x2="20" y2="12"></line>
-          <line x1="4" y1="18" x2="20" y2="18"></line>
-        </svg>
-        <p class="ml-2">Feature Section</p>
-      </div>
+
     </div>
     <!-- End Tabs -->
 
@@ -63,7 +55,7 @@
       </div>
       <div class="mt-6 flex flex-col w-full">
         <%=form.label :hero_description, "Intro Area Description", :class => "pb-2 text-sm font-normal text-gray-800" %>
-        <%=form.text_area :hero_description, :class => "border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 resize-none text-gray-800" %>
+        <%=form.text_area :hero_description, rows: 10, :class => "border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 resize-none text-gray-800" %>
 
 
       </div>
@@ -104,7 +96,7 @@
       </div>
       <div class="mt-6 flex flex-col w-full">
         <%=form.label :about_section_description, "About Description", :class => "pb-2 text-sm font-normal text-gray-800" %>
-        <%=form.text_area :about_section_description, :class => "border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 resize-none text-gray-800" %>
+        <%=form.text_area :about_section_description, rows:10, :class => "border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 resize-none text-gray-800" %>
 
       </div>
 

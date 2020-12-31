@@ -4,7 +4,7 @@
     <div class="xl:w-2/5 lg:w-2/5 bg-siteBlue-500 py-16 xl:rounded-bl rounded-tl rounded-tr xl:rounded-tr-none">
       <div class="xl:w-5/6 xl:px-0 px-8 mx-auto">
         <h1 class="xl:text-4xl text-3xl pb-4 text-white font-bold">Get in touch</h1>
-        <p class="text-xl text-white pb-8 leading-relaxed font-normal lg:pr-4">Got a question about us? Are you interested in partnering with us? Have some suggestions or just want to say Hi? Just contact us. We are here to asset you.</p>
+        <p class="text-xl text-white pb-8 leading-relaxed font-normal lg:pr-4">Got a question about us? Are you interested in partnering with us? Have some suggestions or just want to say Hi? Just contact us. We are here to assist you.</p>
         <div class="flex pb-4 items-center">
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-phone-call" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -14,7 +14,7 @@
               <path d="M15 3a6 6 0 0 1 6 6" />
             </svg>
           </div>
-          <p class="pl-4 text-white text-base">+1 (308) 321 321</p>
+          <p class="pl-4 text-white text-base">+1 <%= @site_info.contact_phone %></p>
         </div>
         <div class="flex items-center">
           <div>
@@ -24,11 +24,17 @@
               <polyline points="3 7 12 13 21 7" />
             </svg>
           </div>
-          <p class="pl-4 text-white text-base">Info@alphas.com</p>
+          <p class="pl-4 text-white text-base"><%= @site_info.contact_email %></p>
         </div>
         <p class="text-lg text-white pt-10 tracking-wide">
-          545, Street 11, Block F <br />
-          Dean Boulevard, Ohio
+          <%= @site_info.contact_address_1 %>
+          <br />
+          <% unless @site_info.contact_address_2.blank? %>
+            <%= @site_info.contact_address_2 %>
+            </br>
+          <% end %>
+
+          <%= @site_info.contact_city %>, <%= @site_info.contact_state %> <%= @site_info.contact_zip %>
         </p>
 
       </div>
