@@ -5,13 +5,14 @@ Rails.application.routes.draw do
 
 
   resources :home_pages
-  devise_for :users
+  devise_for :users, :skip => [:registrations]
   root 'page#home'
 
   # Pages
   match '/about', to: 'page#about', via: :get, as: 'about'
   match '/contact', to: 'page#contact', via: :get, as: 'contact'
-  match '/events', to: 'page#event', via: :get, as: 'events'
+  match '/events', to: 'page#event', via: :get, as: 'events
+'
 
   # Manager
   match '/manager', to: 'manager#dashboard', via: :get, as: 'dashboard'
