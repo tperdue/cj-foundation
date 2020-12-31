@@ -1,11 +1,11 @@
 <div class=" w-11/12 md:w-full bg-white py-5 sm:mb-4 px-5 px-10 sm:shadow rounded">
-  <h2 class="text-gray-700 text-2xl  mb-4 sm:mb-0">Home Page</h2>
+  <h2 class="text-gray-700 text-2xl  mb-4 sm:mb-0">About Page</h2>
 </div>
 
 
 <div data-controller="tab" class="container mx-auto grid items-start  sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 md:mt-8 gap-8">
 
-  <%=form_for(@home_page, :url => home_page_path, :method => 'put')   do |form| %>
+  <%=form_for(@about_page, :url => about_page_path, :method => 'put')   do |form| %>
     <div class=" w-11/12 md:w-full rounded shadow bg-white">
       <!-- Tabs -->
       <div class="bg-gray-100 md:flex items-stretch w-full border border-gray-100">
@@ -20,11 +20,11 @@
             <line x1="9" y1="17" x2="15" y2="17"></line>
           </svg>
 
-          <p class="ml-2">Introduction Section</p>
+          <p class="ml-2">Top Section</p>
         </div>
         <!-- End Intro Tab -->
 
-        <!-- About Section Tab -->
+        <!-- Recipient #1 Tab -->
         <div data-tab-id="2" data-action="click->tab#activateTab" data-tab-target="tabs" class="cursor-pointer text-gray-700 px-8 py-4 flex justify-center items-center">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="#8C8C8C8C" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -34,10 +34,12 @@
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <polyline points="9 6 15 12 9 18"></polyline>
           </svg>
-          <p class="ml-2">About Section</p>
+          <p class="ml-2">Recipient #1</p>
         </div>
-        <!-- End About Section Tab -->
+        <!-- End Recipient #1 Tab -->
 
+
+        <!-- Recipient #2 Tab -->
         <div data-tab-id="3" data-action="click->tab#activateTab" data-tab-target="tabs" class="cursor-pointer text-gray-700 px-8 py-4 flex justify-center items-center">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z"></path>
@@ -47,23 +49,25 @@
           </svg>
           <p class="ml-2">Feature Section</p>
         </div>
+        <!-- End Recipient #2 Tab -->
+
       </div>
       <!-- End Tabs -->
 
       <!-- Panes -->
 
-      <!-- Hero Edit -->
+      <!-- Info Edit -->
       <div class="w-full px-8 py-6 border-b border-gray-300" data-tab-target="pane" data-pane-id="1">
 
         <div class="flex flex-col xl:w-3/5 lg:w-2/6 w-full">
-          <%= form.label :hero_title, 'Title', :class => "pb-2 text-sm font-normal text-gray-800" %>
-          <%= form.text_field :hero_title, :placeholder => "Enter title" , :class => "border border-gray-300 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 text-gray-800" %>
+          <%= form.label :top_title, 'Top Section Title', :class => "pb-2 text-sm font-normal text-gray-800" %>
+          <%= form.text_field :top_title, :placeholder => "Enter title" , :class => "border border-gray-300 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 text-gray-800" %>
 
 
         </div>
         <div class="mt-6 flex flex-col w-full">
-          <%=form.label :hero_description, "Intro Area Description", :class => "pb-2 text-sm font-normal text-gray-800" %>
-          <%=form.text_area :hero_description, :class => "border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 resize-none text-gray-800" %>
+          <%=form.label :top_description, "Top Section Description", :class => "pb-2 text-sm font-normal text-gray-800" %>
+          <%=form.text_area :top_description, rows: 10, :class => "border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 resize-none text-gray-800" %>
 
 
         </div>
@@ -72,15 +76,15 @@
 
 
           <div class="flex flex-col w-full lg:w-1/2 lg:pr-8">
-            <%= form.label :hero_image, "Intro Area Image", :class => "pb-2 text-sm font-normal text-gray-800" %>
-            <%= form.file_field :hero_image, :class => "border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm  focus:border-indigo-700 resize-none text-gray-800" %>
+            <%= form.label :top_image, "Top Section Image", :class => "pb-2 text-sm font-normal text-gray-800" %>
+            <%= form.file_field :top_image, :class => "border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm  focus:border-indigo-700 resize-none text-gray-800" %>
           </div>
 
           <div class="flex flex-col w-1/2 ">
             <div class="">
 
-              <% if @home_page.hero_image.attached?  %>
-                <%= image_tag @home_page.hero_image, :class => "object-cover  w-full h-full"  %>
+              <% if @about_page.top_image.attached?  %>
+                <%= image_tag @about_page.top_image, :class => "object-cover  w-full h-full"  %>
               <% else %>
                 <%= image_tag  'https://via.placeholder.com/150', :class => "object-cover object-center w-full h-full"  %>
               <% end %>
@@ -92,45 +96,12 @@
         </div>
 
       </div>
-      <!-- End Hero Edit -->
+      <!-- End Info Edit -->
+
+
 
       <!-- About Section Edit -->
-      <div class="hidden w-full px-8 py-6 border-b border-gray-300" data-tab-target="pane" data-pane-id="2">
-        <div class="flex flex-col xl:w-3/5 lg:w-2/6 w-full">
-          <%= form.label :about_section_title, 'Title', :class => "pb-2 text-sm font-normal text-gray-800" %>
-          <%= form.text_field :about_section_title, :placeholder => "Enter title" , :class => "border border-gray-300 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 text-gray-800" %>
 
-
-        </div>
-        <div class="mt-6 flex flex-col w-full">
-          <%=form.label :about_section_description, "About Description", :class => "pb-2 text-sm font-normal text-gray-800" %>
-          <%=form.text_area :about_section_description, :class => "border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 resize-none text-gray-800" %>
-
-        </div>
-
-        <div class="mt-6 lg:flex w-full">
-
-
-          <div class="flex flex-col w-full lg:w-1/2 lg:pr-8">
-            <%= form.label :about_image, "About Section Image", :class => "pb-2 text-sm font-normal text-gray-800" %>
-            <%= form.file_field :about_image, :class => "border border-gray-300 pl-3 py-2 shadow-sm rounded text-sm  focus:border-indigo-700 resize-none text-gray-800" %>
-          </div>
-
-          <div class="flex flex-col w-1/2 ">
-
-
-            <% if @home_page.about_image.attached?  %>
-              <%= image_tag @home_page.about_image, :class => "object-cover  w-full h-full"  %>
-            <% else %>
-              <%= image_tag  'https://via.placeholder.com/150', :class => "object-cover w-full h-full"  %>
-            <% end %>
-
-
-
-          </div>
-
-        </div>
-      </div>
       <!-- End About Section Edit -->
 
       <!-- End Panes -->

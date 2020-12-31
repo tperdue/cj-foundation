@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
 
+  before_action :get_site_settings, :get_home_page, :get_about_page
   protected
 
   def get_home_page
@@ -21,6 +22,17 @@ class ApplicationController < ActionController::Base
 
     else
       @site_info = SiteInfo.active.first
+    end
+  end
+
+  def get_about_page
+    if AboutPage.active.empty?
+      @about_page = AboutPage.new({:identifier => "active"})
+      @about_page.save
+      @about_page
+
+    else
+      @about_page = AboutPage.active.first
     end
   end
 end

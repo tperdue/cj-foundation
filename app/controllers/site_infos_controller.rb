@@ -2,7 +2,7 @@ class SiteInfosController < ApplicationController
   layout "manager"
 
   before_action :authenticate_user!
-  before_action :get_home_page, :get_site_settings
+
 
   def new
     redirect_to edit_site_info_path(@site_info)

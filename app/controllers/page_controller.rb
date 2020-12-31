@@ -1,5 +1,5 @@
 class PageController < ApplicationController
-  before_action :get_home_page, :get_site_settings
+
   def home
   end
 
@@ -7,5 +7,9 @@ class PageController < ApplicationController
   end
 
   def contact
+  end
+
+  def event
+
   end
 end

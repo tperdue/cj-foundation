@@ -2,7 +2,7 @@ class HomePagesController < ApplicationController
   layout "manager"
 
   before_action :authenticate_user!
-  before_action :get_site_settings, :get_home_page
+
 
   def new
     redirect_to edit_home_page_path(@home_page)

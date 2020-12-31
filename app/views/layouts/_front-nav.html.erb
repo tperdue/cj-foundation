@@ -64,17 +64,15 @@
       </div>
       <div class="flex">
         <div class="hidden xl:flex md:mr-6 xl:mr-16">
-          <a href="javascript: void(0)" class="flex px-5 items-center py-6 text-sm leading-5 text-white hover:bg-indigo-700 focus:bg-indigo-700 focus:outline-none transition duration-150 ease-in-out">
-
-           News & Events
-          </a>
-        <%= link_to "About", about_path , class: "flex px-5 items-center py-6 text-sm leading-5 text-white hover:bg-indigo-700 focus:bg-indigo-700 focus:outline-none transition duration-150 ease-in-out" %>
+          <%= link_to "News & Events", events_path, class: "flex px-5 items-center py-6 text-sm leading-5 text-white hover:bg-siteOrange-500 focus:bg-indigo-700 focus:outline-none transition duration-150 ease-in-out" %>
 
 
-          <a href="javascript: void(0)" class="flex px-5 items-center py-6 text-sm leading-5 text-white hover:bg-indigo-700 focus:bg-indigo-700 focus:outline-none transition duration-150 ease-in-out">
+        <%= link_to "About", about_path , class: "flex px-5 items-center py-6 text-sm leading-5 text-white hover:bg-siteOrange-500 focus:bg-indigo-700 focus:outline-none transition duration-150 ease-in-out" %>
 
-           Contact
-          </a>
+
+          <%= link_to 'Contact Us', contact_path, class: "flex px-5 items-center py-6 text-sm leading-5 text-white hover:bg-siteOrange-500 focus:bg-indigo-700 focus:outline-none transition duration-150 ease-in-out" %>
+
+
         </div>
         <div class="hidden sm:flex items-center">
           <div class="relative md:mr-6 my-2">

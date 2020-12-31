@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # Pages
   match '/about', to: 'page#about', via: :get, as: 'about'
   match '/contact', to: 'page#contact', via: :get, as: 'contact'
+  match '/events', to: 'page#event', via: :get, as: 'events'
 
   # Manager
   match '/manager', to: 'manager#dashboard', via: :get, as: 'dashboard'
